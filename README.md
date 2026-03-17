@@ -2,7 +2,7 @@
 
 A professional-grade security middleware designed to intercept and sanitize prompts before they reach a Large Language Model (LLM). This gateway provides two layers of protection: **Prompt Injection Detection** via pattern-based scoring and **Personally Identifiable Information (PII) Redaction** using Microsoft Presidio and custom regex recognizers.
 
-## 🚀 Key Features
+## Key Features
 
 *   **Custom PII Recognition**: Specifically detects API keys, Internal IDs, and Bahria Student IDs (e.g., `12-345678-901`).
 *   **Injection Scoring Engine**: Evaluates prompts against common adversarial patterns (e.g., "ignore previous instructions", "jailbreak").
@@ -11,7 +11,7 @@ A professional-grade security middleware designed to intercept and sanitize prom
 
 ---
 
-## 🛠️ Environment Setup
+##  Environment Setup
 
 This project is designed to be fully reproducible using **VS Code** and **Python 3.11**.
 
