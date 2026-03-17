@@ -35,11 +35,10 @@ Select the interpreter associated with the folder you just created.
 | `presidio_setup.py`      | Initializes the Microsoft Presidio engines.                                  |
 | `latency_logger.py`      | Utility to measure execution time.                                           |
 
-Evaluation Logic
-The results are generated based on the following thresholds defined in policy_engine.py:
+Evaluation Table
 
-BLOCK: Triggered if the injection score is ≥ 5, or if the score is ≥ 4 while PII is present.
-
-MASK: Triggered if any PII is detected (Student IDs, Emails, etc.) but the injection risk is low.
-
-ALLOW: Triggered if the prompt is clean of both PII and high-risk injection patterns.
+| Decision | Condition                                                                 |
+|----------|---------------------------------------------------------------------------|
+| BLOCK    | Injection score ≥ 5, OR injection score ≥ 4 with PII present              |
+| MASK     | PII detected (e.g., Student IDs, Emails) with low injection risk          |
+| ALLOW    | No PII detected and no high-risk injection patterns                       |
