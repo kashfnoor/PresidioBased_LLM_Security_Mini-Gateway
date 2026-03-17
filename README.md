@@ -26,13 +26,14 @@ Press Ctrl + Shift + P (or Cmd + Shift + P on Mac).
 Type "Python: Select Interpreter".
 Select the interpreter associated with the folder you just created.
 
-File,Responsibility
-gateway.py,"The main entry point. Orchestrates the detection, policy, and output."
-custom_recognizers.py,Contains custom logic for Bahria IDs and API keys.
-injection_detector.py,Contains the regex library and scoring weights for prompt injections.
-policy_engine.py,The decision logic for blocking or masking prompts.
-presidio_setup.py,Initializes the Microsoft Presidio engines.
-latency_logger.py,Utility to measure execution time.
+| File                     | Responsibility                                                                 |
+|--------------------------|------------------------------------------------------------------------------|
+| `gateway.py`             | The main entry point. Orchestrates detection, policy, and output.            |
+| `custom_recognizers.py`  | Contains custom logic for Bahria IDs and API keys.                           |
+| `injection_detector.py`  | Contains the regex library and scoring weights for prompt injections.        |
+| `policy_engine.py`       | The decision logic for blocking or masking prompts.                          |
+| `presidio_setup.py`      | Initializes the Microsoft Presidio engines.                                  |
+| `latency_logger.py`      | Utility to measure execution time.                                           |
 
 Evaluation Logic
 The results are generated based on the following thresholds defined in policy_engine.py:
