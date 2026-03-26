@@ -1,6 +1,6 @@
 # LLM Security Gateway: PII Masking & Injection Detection
 
-A professional-grade security middleware designed to intercept and sanitize prompts before they reach a Large Language Model (LLM). This gateway provides two layers of protection: **Prompt Injection Detection** via pattern-based scoring and **Personally Identifiable Information (PII) Redaction** using Microsoft Presidio and custom regex recognizers.
+A security system designed to check, mask, or block prompts before they reach a Large Language Model (LLM). This gateway provides two layers of protection: **Prompt Injection Detection** via pattern based scoring and **Personally Identifiable Information (PII) Redaction** which is using Microsoft Presidio and custom regex recognizers.
 
 ## Key Features
 
@@ -18,12 +18,14 @@ This project is designed to be fully reproducible using **VS Code** and **Python
 ### 1. Prerequisites
 *   Ensure **Python 3.11** is installed on your system.
 *   Install the **Python Extension** within VS Code.
+*   Presidio-analyzer for PII detection
+*   presidio-anonymizer for masking the prompts
 
 ### 2. Installation & Virtual Environment
 VS Code Configuration
-To ensure the project uses the correct Python version:
+To make sure that the project uses the correct Python version:
 Press Ctrl + Shift + P (or you can use Cmd + Shift + P on Mac).
-Type "Python: Select Interpreter".
+Type in "Python: Select Interpreter".
 Select the interpreter associated with the folder you just created.
 
 | File                     | Responsibility                                                                 |
@@ -34,6 +36,23 @@ Select the interpreter associated with the folder you just created.
 | `policy_engine.py`       | The decision logic for blocking or masking prompts.|
 | `presidio_setup.py`      | Initializes Microsoft Presidio.|
 | `latency_logger.py`      | Allows us to measure the execution time.|
+
+in policy_engine.py the thresholds for the prompts are currently hard coded
+for example if injection_score >= 7 then BLOCK
+if injection score >=5 AND PII is present then BLOCK
+if PII found then MASK
+scores can be changed as per the users requirement and system to be reloaded
+
+
+Dictionary of keys in the System
+| Key | What the Key Means                                                                 |
+|----------|---------------------------------------------------------------------------|
+| input    | risk score using numbers from the injection detector |
+| pii_detected | Bool showing TRUE if theres a PII that is recongized   |
+| decision    |what the system will do with the prompt like "BLOCK", "MASK" or "ALLOW" |
+| output | message sent to LLM |
+| latency_ms | processing time totalled |
+
 
 Evaluation Table
 
