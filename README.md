@@ -28,16 +28,12 @@ Select the interpreter associated with the folder you just created.
 
 | File                     | Responsibility                                                                 |
 |--------------------------|------------------------------------------------------------------------------|
-| `gateway.py`             | The main entry point. Here is where we have detection, the created policies, and output.            
-         |
-| `custom_recognizers.py`  | Contains custom logic for Bahria IDs and API keys. (You may create your own recognizers as per requirement)                       
-         |
-| `injection_detector.py`  | Contains the regex library (is the tool for pattern matching and text manipulation. and scoring weights for prompt injections.
-         |
-| `policy_engine.py`       | The decision logic for blocking or masking prompts.                          |
-| `presidio_setup.py`      | Initializes Microsoft Presidio.
-         |
-| `latency_logger.py`      | Allows us to measure the execution time.                                           |
+| `gateway.py`             | The main entry point. Here is where we have detection, the created policies, and output. |
+| `custom_recognizers.py`  | Contains custom logic for Bahria IDs and API keys. (You may create your own recognizers as per requirement) |
+| `injection_detector.py`  | Contains the regex library (is the tool for pattern matching and text manipulation. and scoring weights for prompt injections.|
+| `policy_engine.py`       | The decision logic for blocking or masking prompts.|
+| `presidio_setup.py`      | Initializes Microsoft Presidio.|
+| `latency_logger.py`      | Allows us to measure the execution time.|
 
 Evaluation Table
 
